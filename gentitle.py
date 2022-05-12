@@ -69,7 +69,7 @@ def make_frame(t):
 for t in range(0,300):
   make_frame(t)
 
-ffmpeg_cmd = f"ffmpeg -i \"{inputvid}\" -framerate 60 -i frames/frame%04d.png -y -filter_complex scale=1920:1080:'force_original_aspect_ratio=decrease,pad=1920:1080:\(ow-iw\)/2'[scaled]\;[scaled]overlay=x=0:y=0:enable='between\(t\,0\,10\)'[out] -map [out] -map 0:a -max_muxing_queue_size 9999 \"{outputfile}.mp4\""
+ffmpeg_cmd = f"ffmpeg -i \"{inputvid}\" -framerate 60 -i frames/frame%04d.png -y -filter_complex \"scale=1920:1080:force_original_aspect_ratio=decrease,pad=1920:1080:\(ow-iw\)/2[scaled];[scaled]overlay=x=0:y=0:enable=between\(t\,0\,10\)[out]\" -map [out] -map 0:a -max_muxing_queue_size 9999 -c:v libx264 \"{outputfile}.mp4\""
 
 print(f"Command: ${ffmpeg_cmd}")
 subprocess.run(ffmpeg_cmd, shell=True)

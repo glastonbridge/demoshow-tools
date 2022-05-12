@@ -28,7 +28,7 @@ path to video.file,Demo Title,Group / Artist,Release Year,Party,Platform
 e.g.
 
 ```
-303 - Acme.mp4,303,Acme,1997,X Party,PC,00:04:16
+303 - Acme.mp4,303,Acme,1997,X Party,PC
 ```
 
 Run `maketitles.py`
