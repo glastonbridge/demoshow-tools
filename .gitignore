@@ -1,0 +1,11 @@
+*.mov
+*.webm
+*.mp4
+*.txt
+*.csv
+
+oldvids/
+oldplaylists/
+frames/*.png
+.vscode/
+
